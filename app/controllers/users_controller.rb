@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_params, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
+
   def show
   end
   
@@ -45,6 +46,6 @@ class UsersController < ApplicationController
   end
   
   def correct_user
-    redirect_to root_path if @user != currect_user?(@user)
+    redirect_to root_path if !current_user?(@user)
   end
 end
