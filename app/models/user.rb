@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
                        
   validates :remarks, allow_blank: true,
                       length: { maximum: 300 }
+  has_many :microposts
 end
