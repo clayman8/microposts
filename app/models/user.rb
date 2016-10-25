@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates :remarks, allow_blank: true,
                       length: { maximum: 300 }
   has_many :microposts
+
   has_many :following_relationships, class_name: "Relationship",
                                      foreign_key: "follower_id",
                                      dependent: :destroy

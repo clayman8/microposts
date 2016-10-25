@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   
   get 'static_pages/help'
   
+  resources :users do
+    member do
+      get :followings, :followers
+    end
+  end
+  resources :account_activations, only: [:edit]
   resources :users
   resources :microposts
   resources :relationships, only: [:create, :destroy]
